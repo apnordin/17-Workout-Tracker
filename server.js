@@ -15,7 +15,7 @@ mongoose.connect("mongodb://localhost/workout", {
   useFindAndModify: false
 });
 
-app.use(require("./routes/html-routes.js"));
+require("./routes/html-routes.js")(app);
 
 app.listen(PORT, () => {
     console.log(`App running: http://localhost:${PORT}`);
