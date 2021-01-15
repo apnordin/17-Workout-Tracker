@@ -14,7 +14,7 @@ router.get("/api/workouts", (req, res) => {
 
 // Add an exercise
 router.put("/api/workouts/:id", (req, res) => {
-    Workout.update(
+    Workout.updateOne(
         {
             _id: req.params.id
         },
