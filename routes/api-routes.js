@@ -48,7 +48,9 @@ router.get("/api/workouts/range", (req, res) => {
             totalDuration: {$sum: "$exercises.duration"}
             }
         },
+        {$sort: {day: -1}},
         {$limit: 7}
+        
     ])
     .then(dbworkout => {
         res.json(dbworkout);
@@ -57,7 +59,5 @@ router.get("/api/workouts/range", (req, res) => {
         res.status(400).json(err);
     });
 });
-
-
 
 module.exports = router;
